@@ -5,15 +5,22 @@ chrome.extension.sendMessage({}, function(response) {
 		if (document.readyState === "complete") {
 			clearInterval(readyStateCheckInterval);
 			
-			STPopupRemover();
+			STPopupRemover.remove();
 		}
 	}, 10);
 });
 
-function STPopupRemover() {
-	// Remove popup
-	document.querySelector(".ReactModalPortal").remove(); 
+var STPopupRemover = (function() {
+  var remove = function() {
+    // Remove popup
+		document.querySelector(".ReactModalPortal").remove(); 
 
-	// Make page scrollable, in case CSS doesn't override
-	document.querySelector(".ReactModal__Body--open").style.position = 'relative';
-}
+		// Make page scrollable, in case CSS doesn't override
+		document.querySelector(".ReactModal__Body--open").style.position = 'relative';
+	}
+	
+  // Exposed functions
+  return {
+    remove: remove
+  };
+})();
