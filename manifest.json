@@ -1,0 +1,23 @@
+{
+  "name": "Star Tribune Popup Remover : Nick Diesslin",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This extension removes popups so you can read. No idea what the popup is for but this allows you to read news articles.",
+  "homepage_url": "https://ndiesslin.com",
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.startribune.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    }
+  ]
+}

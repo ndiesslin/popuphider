@@ -1,0 +1,9 @@
+/* Hide modal */
+.ReactModalPortal {
+  display: none !important;
+}
+
+/* Make page scrollable */
+.ReactModal__Body--open {
+  position: relative !important;
+}
